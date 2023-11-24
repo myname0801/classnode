@@ -1,0 +1,21 @@
+const http = require('http');
+const express = require('express')
+const app = express();
+
+const hostname = 'localhost'; // localhost === 127.0.0.1
+const port = 5000;
+
+const server = http.createServer((req, res) => {
+
+    res.statusCode = 200;
+    res.setHeader('Content-Type','text/plain');
+    res.end('Hello World')
+});
+
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}`)
+})
+
+app.get(`/coffee`, function(req, res){
+    res.send("커피인가?");
+})
